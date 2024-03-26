@@ -12,12 +12,13 @@
 
 
 // Retrieve environment variables or use default values
-#define USE_FP16 getenv("USE_FP16") ? atoi(getenv("USE_FP16")) : true;
-#define DEVICE getenv("DEVICE") ? atoi(getenv("DEVICE")) : 0;
-#define NMS_THRESH getenv("NMS_THRESH") ? atof(getenv("NMS_THRESH")) : 0.4;
-#define CONF_THRESH getenv("CONF_THRESH") ? atof(getenv("CONF_THRESH")) : 0.5;
-#define BATCH_SIZE getenv("BATCH_SIZE") ? atoi(getenv("BATCH_SIZE")) : 1;
-#define MAX_IMAGE_INPUT_SIZE_THRESH getenv("MAX_IMAGE_INPUT_SIZE_THRESH") ? atoi(getenv("MAX_IMAGE_INPUT_SIZE_THRESH")) : 3000 * 3000;
+#define USE_FP16 (getenv("USE_FP16") ? atoi(getenv("USE_FP16")) : true)
+#define DEVICE (getenv("DEVICE") ? atoi(getenv("DEVICE")) : 0)
+#define NMS_THRESH (getenv("NMS_THRESH") ? atof(getenv("NMS_THRESH")) : 0.4)
+#define CONF_THRESH (getenv("CONF_THRESH") ? atof(getenv("CONF_THRESH")) : 0.5)
+#define BATCH_SIZE (getenv("BATCH_SIZE") ? atoi(getenv("BATCH_SIZE")) : 1)
+#define MAX_IMAGE_INPUT_SIZE_THRESH (getenv("MAX_IMAGE_INPUT_SIZE_THRESH") ? atoi(getenv("MAX_IMAGE_INPUT_SIZE_THRESH")) : 3000 * 3000)
+
 int INPUT_H = getenv("INPUT_H") ? atoi(getenv("INPUT_H")) : 640;
 int INPUT_W = getenv("INPUT_W") ? atoi(getenv("INPUT_W")) : 640;
 int CLASS_NUM = getenv("CLASS_NUM") ? atoi(getenv("CLASS_NUM")) : 80;
@@ -315,7 +316,6 @@ bool parse_args(int argc, char** argv, std::string& wts, std::string& engine, bo
 }
 
 int main(int argc, char** argv) {
-    
     std::cout << "USE_FP16: " << USE_FP16 << std::endl;
     std::cout << "DEVICE: " << DEVICE << std::endl;
     std::cout << "NMS_THRESH: " << NMS_THRESH << std::endl;
