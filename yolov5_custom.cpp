@@ -26,10 +26,10 @@
 #define BATCH_SIZE 1
 #define MAX_IMAGE_INPUT_SIZE_THRESH 3000 * 3000
 
-int INPUT_H = getenv("INPUT_H") ? atoi(getenv("INPUT_H")) : 640;
-int INPUT_W = getenv("INPUT_W") ? atoi(getenv("INPUT_W")) : 640;
-int CLASS_NUM = getenv("CLASS_NUM") ? atoi(getenv("CLASS_NUM")) : 80;
-int OUTPUT_SIZE = getenv("OUTPUT_SIZE") ? atoi(getenv("OUTPUT_SIZE")) : (Yolo::MAX_OUTPUT_BBOX_COUNT * sizeof(Yolo::Detection) / sizeof(float) + 1);
+int INPUT_H = 640;
+int INPUT_W = 640;
+int CLASS_NUM = 80;
+int OUTPUT_SIZE = (Yolo::MAX_OUTPUT_BBOX_COUNT * sizeof(Yolo::Detection) / sizeof(float) + 1);
 
 // Stuff we know about the network and the input/output blobs
 static const int INPUT_H_CONST = INPUT_H;
