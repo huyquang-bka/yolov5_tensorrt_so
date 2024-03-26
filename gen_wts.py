@@ -3,7 +3,6 @@ import argparse
 import os
 import struct
 import torch
-from utils.torch_utils import select_device
 
 
 def parse_args():
@@ -25,7 +24,7 @@ def parse_args():
 pt_file, wts_file = parse_args()
 
 # Initialize
-device = select_device('cpu')
+device = torch.device('cpu')
 # Load model
 model = torch.load(pt_file, map_location=device)  # load to FP32
 model = model['ema' if model.get('ema') else 'model'].float()
