@@ -26,9 +26,9 @@ struct alignas(float) Detection {
 };
 
 // stuff we know about the network and the input/output blobs, read from environment variable
-static const int INPUT_H = getenv("INPUT_H") ? atoi(getenv("INPUT_H")) : 640;
-static const int INPUT_W = getenv("INPUT_W") ? atoi(getenv("INPUT_W")) : 640;
-static const int CLASS_NUM = getenv("CLASS_NUM") ? atoi(getenv("CLASS_NUM")) : 3;
+static const int INPUT_H = 640;
+static const int INPUT_W = 640;
+static const int CLASS_NUM = 3;
 static const int OUTPUT_SIZE = 1000 * sizeof(Detection) / sizeof(float) + 1;  // we assume the yololayer outputs no more than MAX_OUTPUT_BBOX_COUNT boxes that conf >= 0.1
 const char* INPUT_BLOB_NAME = "data";
 const char* OUTPUT_BLOB_NAME = "prob";
