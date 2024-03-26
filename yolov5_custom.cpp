@@ -323,16 +323,6 @@ bool parse_args(int argc, char** argv, std::string& wts, std::string& engine, bo
 }
 
 int main(int argc, char** argv) {
-    std::cout << "USE_FP16: " << USE_FP16 << std::endl;
-    std::cout << "DEVICE: " << DEVICE << std::endl;
-    std::cout << "NMS_THRESH: " << NMS_THRESH << std::endl;
-    std::cout << "CONF_THRESH: " << CONF_THRESH << std::endl;
-    std::cout << "BATCH_SIZE: " << BATCH_SIZE << std::endl;
-    std::cout << "MAX_IMAGE_INPUT_SIZE_THRESH: " << MAX_IMAGE_INPUT_SIZE_THRESH << std::endl;
-    std::cout << "INPUT_H: " << INPUT_H << std::endl;
-    std::cout << "INPUT_W: " << INPUT_W << std::endl;
-    std::cout << "CLASS_NUM: " << CLASS_NUM << std::endl;
-    std::cout << "OUTPUT_SIZE: " << OUTPUT_SIZE << std::endl;
 
     cudaSetDevice(DEVICE);
     std::string wts_name = "";
