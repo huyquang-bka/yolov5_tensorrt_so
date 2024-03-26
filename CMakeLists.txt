@@ -31,8 +31,8 @@ find_package(OpenCV)
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${OpenCV_LIBS})
 
-cuda_add_executable(yolov5 calibrator.cpp yolov5.cpp preprocess.cu)
-#cuda_add_library(yolov5 SHARED ${PROJECT_SOURCE_DIR}/yolov5.cpp ${PROJECT_SOURCE_DIR}/calibrator.cpp ${PROJECT_SOURCE_DIR}/yololayer.cu ${PROJECT_SOURCE_DIR}/yololayer.h ${PROJECT_SOURCE_DIR}/preprocess.cu)
+cuda_add_executable(yolov5 calibrator.cpp yolov5_custom.cpp preprocess.cu)
+#cuda_add_library(yolov5 SHARED ${PROJECT_SOURCE_DIR}/yolov5_custom ${PROJECT_SOURCE_DIR}/calibrator.cpp ${PROJECT_SOURCE_DIR}/yololayer.cu ${PROJECT_SOURCE_DIR}/yololayer.h ${PROJECT_SOURCE_DIR}/preprocess.cu)
 
 target_link_libraries(yolov5 nvinfer)
 target_link_libraries(yolov5 cudart)
