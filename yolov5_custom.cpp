@@ -10,28 +10,18 @@
 #include "preprocess.h"
 #include "macros.h"
 
-#define USE_FP16_DEFAULT false
-#define DEVICE_DEFAULT 0
-#define NMS_THRESH_DEFAULT 0.4
-#define CONF_THRESH_DEFAULT 0.5
-#define BATCH_SIZE_DEFAULT 1
-#define MAX_IMAGE_INPUT_SIZE_THRESH_DEFAULT 3000 * 3000
-#define INPUT_H_DEFAULT Yolo::INPUT_H
-#define INPUT_W_DEFAULT Yolo::INPUT_W
-#define CLASS_NUM_DEFAULT Yolo::CLASS_NUM
-#define OUTPUT_SIZE_DEFAULT (Yolo::MAX_OUTPUT_BBOX_COUNT * sizeof(Yolo::Detection) / sizeof(float) + 1)
 
 // Retrieve environment variables or use default values
-bool USE_FP16 = getenv("USE_FP16") ? atoi(getenv("USE_FP16")) : USE_FP16_DEFAULT;
-int DEVICE = getenv("DEVICE") ? atoi(getenv("DEVICE")) : DEVICE_DEFAULT;
-float NMS_THRESH = getenv("NMS_THRESH") ? atof(getenv("NMS_THRESH")) : NMS_THRESH_DEFAULT;
-float CONF_THRESH = getenv("CONF_THRESH") ? atof(getenv("CONF_THRESH")) : CONF_THRESH_DEFAULT;
-int BATCH_SIZE = getenv("BATCH_SIZE") ? atoi(getenv("BATCH_SIZE")) : BATCH_SIZE_DEFAULT;
-int MAX_IMAGE_INPUT_SIZE_THRESH = getenv("MAX_IMAGE_INPUT_SIZE_THRESH") ? atoi(getenv("MAX_IMAGE_INPUT_SIZE_THRESH")) : MAX_IMAGE_INPUT_SIZE_THRESH_DEFAULT;
-int INPUT_H = getenv("INPUT_H") ? atoi(getenv("INPUT_H")) : INPUT_H_DEFAULT;
-int INPUT_W = getenv("INPUT_W") ? atoi(getenv("INPUT_W")) : INPUT_W_DEFAULT;
-int CLASS_NUM = getenv("CLASS_NUM") ? atoi(getenv("CLASS_NUM")) : CLASS_NUM_DEFAULT;
-int OUTPUT_SIZE = getenv("OUTPUT_SIZE") ? atoi(getenv("OUTPUT_SIZE")) : OUTPUT_SIZE_DEFAULT;
+bool USE_FP16 = getenv("USE_FP16") ? atoi(getenv("USE_FP16")) : true;
+int DEVICE = getenv("DEVICE") ? atoi(getenv("DEVICE")) : 0;
+float NMS_THRESH = getenv("NMS_THRESH") ? atof(getenv("NMS_THRESH")) : 0.4;
+float CONF_THRESH = getenv("CONF_THRESH") ? atof(getenv("CONF_THRESH")) : 0.5;
+int BATCH_SIZE = getenv("BATCH_SIZE") ? atoi(getenv("BATCH_SIZE")) : 1;
+int MAX_IMAGE_INPUT_SIZE_THRESH = getenv("MAX_IMAGE_INPUT_SIZE_THRESH") ? atoi(getenv("MAX_IMAGE_INPUT_SIZE_THRESH")) : 3000 * 3000;
+int INPUT_H = getenv("INPUT_H") ? atoi(getenv("INPUT_H")) : 640;
+int INPUT_W = getenv("INPUT_W") ? atoi(getenv("INPUT_W")) : 640;
+int CLASS_NUM = getenv("CLASS_NUM") ? atoi(getenv("CLASS_NUM")) : 80;
+int OUTPUT_SIZE = getenv("OUTPUT_SIZE") ? atoi(getenv("OUTPUT_SIZE")) : (Yolo::MAX_OUTPUT_BBOX_COUNT * sizeof(Yolo::Detection) / sizeof(float) + 1);
 
 // Stuff we know about the network and the input/output blobs
 static const int INPUT_H_CONST = INPUT_H;
