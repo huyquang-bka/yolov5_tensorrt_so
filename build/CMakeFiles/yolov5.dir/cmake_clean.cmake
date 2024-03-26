@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/yolov5.dir/calibrator.cpp.o"
+  "CMakeFiles/yolov5.dir/calibrator.cpp.o.d"
   "CMakeFiles/yolov5.dir/yolov5_custom.cpp.o"
+  "CMakeFiles/yolov5.dir/yolov5_custom.cpp.o.d"
   "CMakeFiles/yolov5.dir/yolov5_generated_preprocess.cu.o"
   "yolov5"
   "yolov5.pdb"
