@@ -1,4 +1,0 @@
-/mnt/atin/huyquang/yolov5_tensorrt_so/build/CMakeFiles/myplugins.dir
-/mnt/atin/huyquang/yolov5_tensorrt_so/build/CMakeFiles/yolov5.dir
-/mnt/atin/huyquang/yolov5_tensorrt_so/build/CMakeFiles/edit_cache.dir
-/mnt/atin/huyquang/yolov5_tensorrt_so/build/CMakeFiles/rebuild_cache.dir
