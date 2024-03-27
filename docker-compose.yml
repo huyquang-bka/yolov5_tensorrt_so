@@ -1,0 +1,27 @@
+version: "1.0"
+
+services:
+  # build engine file
+  tensorrt-opencv:
+    image: huyquang/tensorrt-opencv-ultralytics:latest
+    container_name: tensorrt-opencv-ultralytics
+    network_mode: host
+    volumes:
+      - model-export:/model-export
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    neptune:
+      image: neptuneai/neptune:latest
+      container_name: neptune
+      network_mode: host
+      volumes:
+        - model-export:/model-export
+
+volumes:
+  model-export:
