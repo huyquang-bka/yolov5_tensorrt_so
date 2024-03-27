@@ -9,8 +9,10 @@ mv CMakeLists_exe.txt CMakeLists.txt
 mkdir -p build
 rm -rf build/*
 cd build
-cmake ../
-make -j$(nproc)
+# build with cmake in silent mode
+cmake ../ > /dev/null 2>&1
+# make with nproc in silent mode
+make -j$(nproc) > /dev/null 2>&1
 
 # echo build status
 if [ $? -eq 0 ]; then
