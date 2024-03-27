@@ -1,0 +1,22 @@
+version: "Tensorrt-8.6.1.6"
+
+services:
+  tensorrt-opencv:
+    image: huyquang/tensorrt-opencv-ultralytics
+    network_mode: host
+    command: /bin/bash -c "./scripts/combined.sh"
+    volumes:
+      - folder_path/weight.pt:/weights/weight.pt
+      - ./scripts:/scripts
+    environment:
+      - CLASS_NUM=2
+      - INPUT_H=640
+      - INPUT_W=640
+      - TYPE=s
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
