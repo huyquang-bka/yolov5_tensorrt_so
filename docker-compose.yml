@@ -3,10 +3,11 @@ version: "Tensorrt-8.6.1.6"
 services:
   tensorrt-opencv:
     image: huyquang/tensorrt-opencv-ultralytics
+    container_name: tensorrt-opencv-build
     network_mode: host
-    command: /bin/bash -c "./scripts/combined.sh"
+    command: /bin/bash -c "cat scripts/combined.sh && chmod +x /scripts/* && ./scripts/combined.sh"
     volumes:
-      - folder_path/weight.pt:/weights/weight.pt
+      - /mnt/atin/huyquang/face-doirong/resources/weights/last-bad-good-face-640.pt:/weights/last-bad-good-face-640.pt
       - ./scripts:/scripts
     environment:
       - CLASS_NUM=2

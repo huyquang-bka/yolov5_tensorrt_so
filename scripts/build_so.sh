@@ -14,9 +14,9 @@ make -j$(nproc)
 
 # echo build status
 if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Build executable success${NC}"
+    echo -e "${GREEN}Build so success${NC}"
 else
-    echo -e "${RED}Build executable failed${NC}"
+    echo -e "${RED}Build so failed${NC}"
     exit 1
 fi
 
