@@ -9,12 +9,14 @@ services:
     volumes:
       - /mnt/atin/huyquang/weights/:/weights/ # sua cai nay
       - ./script.sh:/script.sh
+      - ./upload_neptune.py:/upload_neptune.py
     environment: # sua nhung cai nay
       - MODEL=last-bad-good-face-640.pt
       - CLASS_NUM=2
       - INPUT_H=640
       - INPUT_W=640
       - TYPE=s
+      - NEPTUNE_MODEL=ATIN-DOIRONG
     deploy:
       resources:
         reservations:

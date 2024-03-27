@@ -158,3 +158,8 @@ else
     echo "No libyolov5.so file found in /weights"
     exit 1
 fi
+
+# upload to neptune
+pip3 install neptune-client
+# run python script to upload to neptune
+python3 /upload_neptune.py
