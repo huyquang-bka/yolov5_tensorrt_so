@@ -1,0 +1,2 @@
+./echo.sh
+./export.sh
