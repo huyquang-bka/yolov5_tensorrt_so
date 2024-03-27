@@ -5,11 +5,12 @@ services:
     image: huyquang/tensorrt-opencv-ultralytics
     container_name: tensorrt-opencv-build
     network_mode: host
-    command: /bin/bash -c "cat scripts/combined.sh && chmod +x /scripts/* && ./scripts/combined.sh"
+    command: /bin/bash -c "chmod +x /script.sh && ./script.sh"
     volumes:
-      - /mnt/atin/huyquang/face-doirong/resources/weights/last-bad-good-face-640.pt:/weights/last-bad-good-face-640.pt
-      - ./scripts:/scripts
-    environment:
+      - /mnt/atin/huyquang/weights/:/weights/ # sua cai nay
+      - ./script.sh:/script.sh
+    environment: # sua nhung cai nay
+      - MODEL=last-bad-good-face-640.pt
       - CLASS_NUM=2
       - INPUT_H=640
       - INPUT_W=640
@@ -19,5 +20,5 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              count: 1
+              count: all
               capabilities: [gpu]
