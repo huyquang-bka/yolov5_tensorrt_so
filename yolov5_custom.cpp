@@ -540,8 +540,8 @@ extern "C" API void Detect(void *h, int rows, int cols, unsigned char *src_data,
 		cv::Rect r = get_rect(img, res[j].bbox);
 		res_array[j][0] = r.x;
 		res_array[j][1] = r.y;
-		res_array[j][2] = r.width;
-		res_array[j][3] = r.height;
+		res_array[j][2] = r.x + r.width;
+		res_array[j][3] = r.y + r.height;
 		res_array[j][4] = res[j].class_id;
 		res_array[j][5] = res[j].conf;
 	}
